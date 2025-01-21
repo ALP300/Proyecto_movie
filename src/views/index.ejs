@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            padding: 2rem;
+        }
+        .movie {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .movie-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: calc(33.333% - 1rem);
+            margin-bottom: 1rem;
+        }
+        .movie-card img {
+            width: 100%;
+            height: auto;
+        }
+        .movie-card h2 {
+            font-size: 1.2rem;
+            margin: 0.5rem;
+        }
+        .movie-card p {
+            font-size: 1rem;
+            margin: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .movie-card {
+                width: calc(50% - 1rem);
+            }
+        }
+        @media (max-width: 480px) {
+            .movie-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Movie Web</h1>
+    </header>
+    <div class="container">
+        <div class="movie">
+            <div class="movie-card">
+                <img src="movie1.jpg" alt="Movie 1">
+                <h2>Movie Title 1</h2>
+                <p>Movie description goes here.</p>
+            </div>
+            <div class="movie-card">
+                <img src="movie2.jpg" alt="Movie 2">
+                <h2>Movie Title 2</h2>
+                <p>Movie description goes here.</p>
+            </div>
+            <div class="movie-card">
+                <img src="movie3.jpg" alt="Movie 3">
+                <h2>Movie Title 3</h2>
+                <p>Movie description goes here.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pantalla principal</h1>
+</body>
+</html>
