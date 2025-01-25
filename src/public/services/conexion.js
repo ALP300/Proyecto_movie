@@ -20,3 +20,13 @@ export async function Conectar(params){
         console.log(error);
     }
 }
+export async function ConsultarPeliculas(){
+    const cliente = new Client(config);
+    try{
+        await cliente.connect();
+        const res = await cliente.query('SELECT * FROM peliculas');
+        return res.rows;
+    }catch(error){
+        console.log(error);
+    }
+}
