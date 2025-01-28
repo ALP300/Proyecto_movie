@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,10 +5,12 @@
     <%- include('partials/head') %>
     <title><%=title %></title>
     <title>Document</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <%- include('partials/navigation') %>
-<body
+<body>
     <header>
         <h1>Bienvenido a Nuestro Cine</h1>
         <nav>
@@ -20,32 +21,41 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section id="cartelera">
-            <h2>Cartelera</h2>
-            <div class="pelicula">
-                <h3>Película 1</h3>
-                <p>Descripción de la película 1.</p>
-            </div>
-            <div class="pelicula">
-                <h3>Película 2</h3>
-                <p>Descripción de la película 2.</p>
-            </div>
-        </section>
-        <section id="proximamente">
-            <h2>Próximamente</h2>
-            <div class="pelicula">
-                <h3>Película 3</h3>
-                <p>Descripción de la película 3.</p>
-            </div>
-            <div class="pelicula">
-                <h3>Película 4</h3>
-                <p>Descripción de la película 4.</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Nuestro Cine. Todos los derechos reservados.</p>
-    </footer>
+    <div class="container mt-4">
+        <div id="mostrarPeliculas" class="row"></div>
+    </div>
+    <script>
+        async function getPeliculas() {
+            try {
+                const response = await fetch('http://localhost:3000/api/get-peliculas', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const peliculas = await response.json();
+                const mostrarPeliculasDiv = document.getElementById('mostrarPeliculas');
+                peliculas.forEach(pelicula => {
+                    const peliculaDiv = document.createElement('div');
+                    peliculaDiv.classList.add('col-md-4', 'mb-4');
+                    peliculaDiv.innerHTML = `
+                         <div class="card" style="width: 18rem;">
+                        <img src="${pelicula.url}" class="card-img-top" alt="${pelicula.titulo}">
+                        <div class="card-body">
+                            <h5 class="card-title">${pelicula.titulo}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    `;
+                    mostrarPeliculasDiv.appendChild(peliculaDiv);
+                });
+            } catch (error) {
+                console.error('Error al obtener las peliculas', error);
+            }
+        }
+
+        getPeliculas();
+    </script>
 </body>
 </html>
