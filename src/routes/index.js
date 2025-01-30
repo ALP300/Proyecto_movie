@@ -14,7 +14,7 @@ router.get('/catalogo', (req, res) => res.render('Catalogo' ,{title:'Catálogo'}
 router.get('/registrarCliente', (req, res) => res.render('registrarCliente' ,{title:'Registrar Cliente'}));
 router.get('/Titanic', (req, res) => res.render('infoTitanic' ,{title:'Titanic'}));
 router.get('/iniciarSesion', (req, res) => res.render('iniciarSesion' ,{title:'IniciarSesion'}));
-
+router.get('/bot', (req, res) => res.render('Bot' ,{title:'Bot'}));
 router.get('/api/get-peliculas', async (req, res) => {
    const peliculas= await ConsultarPeliculas(); 
    res.status(200).json(peliculas);
